@@ -28,6 +28,7 @@
       border-radius: 10px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       padding: 20px;
+      gap: 20px;
       width: fit-content;
       display: flex;
       flex-direction: row;
@@ -40,6 +41,10 @@
       margin: 20px;
       width: 300px;
       height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
     }
 
     .boxes-right {
@@ -49,29 +54,72 @@
       height: 300px;
       background-color: rgb(33, 57, 57);
     }
+    
+    .section-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: gray;
+    }
+
+    .tip-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .tip-button {
+      background-color: hsl(173, 51%, 24%);
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .tip-button:hover {
+      background-color: hsl(172, 55%, 49%);
+    }
+    
+    input {
+      border: 1px solid gray;
+      border-radius: 5px;
+      padding: 10px;
+      width: 100%;
+      font-size: 16px;
+    }
+
   </style>
 </head>
 <body>
 
   <div class="card">
     <div class="boxes-left">
-      <h1>Tip Calculator</h1>
-      <label for="bill">Bill</label>
-      <input type="number" id="bill" placeholder="0" />
-
-      select tip should be a bunch of buttons not a drop down
-      <div class="tip-buttons">
-        <button class="tip-button
-        " data-tip="5">5%</button>
-        <button class="tip-button" data-tip="10">10%</button>
-        <button class="tip-button" data-tip="15">15%</button>
-        <button class="tip-button" data-tip="25">25%</button>
-        <button class="tip-button" data-tip="50">50%</button>
-        <button class="tip-button" data-tip="custom">Custom</button>
+      <div class="billshyt">
+        <label class="section-title">Bill</label>
+        <div>
+          <input type="number" id="bill" placeholder="0" />
+        </div>
       </div>
 
-      <label for="people">Number of People</label>
-      <input type="number" id="people" placeholder="1" />
+      <div class="tipshyt">
+        <label class="section-title">Select Tip %</label>
+        <div class="tip-buttons">
+          <button class="tip-button" data-tip="5">5%</button>
+          <button class="tip-button" data-tip="10">10%</button>
+          <button class="tip-button" data-tip="15">15%</button>
+          <button class="tip-button" data-tip="25">25%</button>
+          <button class="tip-button" data-tip="50">50%</button>
+          <button class="tip-button" data-tip="custom">Custom</button>
+        </div>
+      </div>
+
+      <div class="peopleshyt">
+        <label class="section-title" for="people">Number of People</label>
+        <div>
+          <input type="number" id="people" placeholder="1" />
+        </div>
+      </div>
     </div>
 
     <div class="boxes-right">
