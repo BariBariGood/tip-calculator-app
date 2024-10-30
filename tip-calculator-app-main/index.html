@@ -10,15 +10,15 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
+    .attribution { 
+      font-size: 11px; 
+      text-align: center; 
+    }
     .attribution a { color: hsl(228, 45%, 44%); }
 
     body {
       font-family: 'Arial', sans-serif;
       background-color: hsl(185, 41%, 84%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
       height: 100vh;
       margin: 0;
     }
@@ -28,18 +28,33 @@
       border-radius: 10px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       padding: 20px;
-      width: 320px;
+      width: fit-content;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 50px auto;
+
     }
 
-    .boxes {
-      margin-bottom: 20px;
+    .boxes-left {
+      margin: 20px;
+      width: 300px;
+      height: 300px;
+    }
+
+    .boxes-right {
+      color: white;
+      margin: 20px;
+      width: 300px;
+      height: 300px;
+      background-color: rgb(33, 57, 57);
     }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <div class="boxes">
+    <div class="boxes-left">
       <h1>Tip Calculator</h1>
       <label for="bill">Bill</label>
       <input type="number" id="bill" placeholder="0" />
@@ -59,7 +74,7 @@
       <input type="number" id="people" placeholder="1" />
     </div>
 
-    <div class="boxes">
+    <div class="boxes-right">
       <h2>Tip Amount <span>/ person</span></h2>
       <p id="tip-amount">$0.00</p>
   
@@ -68,7 +83,7 @@
   
       <button id="reset">Reset</button>
     </div>
-    
+  </div>
 
   
   <div class="attribution">
