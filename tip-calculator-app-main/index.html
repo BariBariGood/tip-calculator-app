@@ -1,142 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
   <title>Frontend Mentor | Tip calculator app</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { 
-      font-size: 11px; 
-      text-align: center; 
-    }
-    .attribution a { color: hsl(228, 45%, 44%); }
-
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: hsl(185, 41%, 84%);
-      height: 100vh;
-      margin: 0;
-    }
-
-    .card {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      gap: 20px;
-      width: fit-content;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      margin: 50px auto;
-
-    }
-
-    .boxes-left {
-      margin: 20px;
-      width: 300px;
-      height: 300px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-    }
-
-    .boxes-right {
-      color: white;
-      margin: 20px;
-      width: 300px;
-      height: 300px;
-      background-color: rgb(33, 57, 57);
-    }
-    
-    .section-title {
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: gray;
-    }
-
-    .tip-buttons {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .tip-button {
-      background-color: hsl(173, 51%, 24%);
-      border: none;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-      padding: 10px;
-      font-size: 16px;
-    }
-
-    .tip-button:hover {
-      background-color: hsl(172, 55%, 49%);
-    }
-    
-    input {
-      border: 1px solid gray;
-      border-radius: 5px;
-      padding: 10px;
-      width: 100%;
-      font-size: 16px;
-    }
-
-  </style>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
+
 <body>
+  <main>
+    <h1><img src="./images/logo.svg" id="logo" alt="Calculator logo" /></h1>
 
-  <div class="card">
-    <div class="boxes-left">
-      <div class="billshyt">
-        <label class="section-title">Bill</label>
-        <div>
-          <input type="number" id="bill" placeholder="0" />
+    <section class="calculator-container">
+      <div class="input-section">
+        <label for="bill-amount">Bill</label>
+        <div class="input-wrapper">
+          <input type="text" class="input-field" id="bill-amount" placeholder="0" aria-label="Enter bill amount" />
+        </div>
+
+        <label>Select Tip %</label>
+        <div class="tip-options">
+          <button type="button" class="tip-btn" data-tip="5">5%</button>
+          <button type="button" class="tip-btn" data-tip="10">10%</button>
+          <button type="button" class="tip-btn" data-tip="15">15%</button>
+          <button type="button" class="tip-btn" data-tip="25">25%</button>
+          <button type="button" class="tip-btn" data-tip="50">50%</button>
+          <input type="text" class="tip-input custom-percentage" id="custom-tip" placeholder="Custom" aria-label="Enter custom tip" />
+        </div>
+
+        <label for="people-count">Number of People <span class="warning">Can't be zero</span></label>
+        <div class="input-wrapper">
+          <input type="text" class="input-field" id="people-count" placeholder="0" aria-label="Enter number of people" />
         </div>
       </div>
 
-      <div class="tipshyt">
-        <label class="section-title">Select Tip %</label>
-        <div class="tip-buttons">
-          <button class="tip-button" data-tip="5">5%</button>
-          <button class="tip-button" data-tip="10">10%</button>
-          <button class="tip-button" data-tip="15">15%</button>
-          <button class="tip-button" data-tip="25">25%</button>
-          <button class="tip-button" data-tip="50">50%</button>
-          <button class="tip-button" data-tip="custom">Custom</button>
+      <div class="display-section">
+        <div class="display-tip">
+          <p>Tip Amount <span>/ person</span></p>
+          <p id="tip-amount" class="amount show-tip">$0.00</p>
         </div>
-      </div>
-
-      <div class="peopleshyt">
-        <label class="section-title" for="people">Number of People</label>
-        <div>
-          <input type="number" id="people" placeholder="1" />
+        <div class="display-total">
+          <p>Total <span>/ person</span></p>
+          <p id="total" class="amount show-total">$0.00</p>
         </div>
+        <button id="reset" class="reset-btn" aria-label="Reset calculator" disabled>RESET</button>
       </div>
-    </div>
+    </section>
+  </main>
 
-    <div class="boxes-right">
-      <h2>Tip Amount <span>/ person</span></h2>
-      <p id="tip-amount">$0.00</p>
-  
-      <h2>Total <span>/ person</span></h2>
-      <p id="total">$0.00</p>
-  
-      <button id="reset">Reset</button>
-    </div>
-  </div>
+  <footer>
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Ivan and Angelina</a>.
+  </footer>
 
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <script src="./index.js"></script>
 </body>
+
 </html>
